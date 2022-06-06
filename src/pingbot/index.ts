@@ -1,6 +1,8 @@
 import { Client as RevoltClient} from "revolt.js";
 import { Client as RejectClient, Message as RejectMessage } from "revolt-reject.js";
 import { Client, Message } from "discord.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 function BotReady(client: Client) {
     console.log(`Logged in as ${client.user?.username}`);
@@ -23,3 +25,5 @@ bot.on("ready", () => {
 bot.on("message", (msg) => {
     onMessage(new RejectMessage(msg) as any);
 });
+
+bot.loginBot(token);
